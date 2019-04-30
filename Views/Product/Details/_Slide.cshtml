@@ -16,7 +16,10 @@
 
 <div class="ui grid">
     <div class="row">
-        <div class="column center aligned">
+        <div class="five wide mobile wide computer column">
+            @Html.Partial("~/Views/Product/Details/_Gallery.cshtml", Model)
+        </div>
+        <div class="eleven wide mobile wide computer column">
             <div class="ui image">
                 @if (!string.IsNullOrEmpty(tag.Name))
                 {
@@ -35,13 +38,6 @@
                 </div>
                 <button class="ui button basic small toggleZoom mobile only" data-active="false">Habilitar Zoom</button>
             </div>
-        </div>
-    </div>
-
-
-    <div class="row one column">
-        <div class="column">
-            @Html.Partial("~/Views/Product/Details/_Gallery.cshtml", Model)
         </div>
     </div>
 </div>

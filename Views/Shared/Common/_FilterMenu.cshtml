@@ -3,7 +3,7 @@
     <div class="ui labels">
 
     </div>
-    <div class="four wide column filtros" id="filtros">
+    <div class="four wide column filtros filtros_CRP" id="filtros">
         <div class="ui grid one column">
             <div class="row">
                 <div class="row filterbar">
@@ -39,8 +39,9 @@
                             <!-- Page: ~/Views/Shared/Blocks/Atribute/_AtributesFilters.cshtml -->
                             @Html.Partial("~/Views/Shared/Blocks/Atributes/_AtributesFilters.cshtml", Model.Attributes)
                         }
-
+                        <div class="referencia">
                         @Html.Partial("~/Views/Shared/Blocks/Product/_PriceFilters.cshtml")
+                        </div>
                     </div>
                 </div>
             </div>

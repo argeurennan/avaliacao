@@ -11,15 +11,6 @@
             <img class="ui middle aligned image logo" src="/assets/image/logo/logo.png" alt="@LojaCorp.Control.Company._Company.FantasyName" title="@LojaCorp.Control.Company._Company.FantasyName">
           </a>
         </div>
-        <div class="ui center aligned six wide tablet seven wide computer column searchcolumn">
-          <div class="ui category @_classSearch">
-            <div class="ui icon input fluid">
-              <input class="prompt" type="text" placeholder="Buscar...">
-              <i class="search icon"></i>
-            </div>
-            <div class="results"></div>
-          </div>
-        </div>
         @{
             bool isb2b = Session["segment"] != null && Session["segment"].ToString() == "b2b" ? true : false;
             DomainAssistedSale.Entities.Seller _assistedSale = (DomainAssistedSale.Entities.Seller)Session["Seller"];
@@ -78,8 +69,16 @@
             </div>
           </div>
         </div>
+        <div class="ui center aligned six wide tablet seven wide computer column searchcolumn">
+          <div class="ui category @_classSearch">
+            <div class="ui icon input fluid">
+              <input class="prompt" type="text" placeholder="Buscar...">
+              <i class="search icon"></i>
+            </div>
+            <div class="results"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-

@@ -38,7 +38,7 @@
   }
 }
 @section filters {
-  <div class="four wide column filterColumn">
+  <div class="sixteen wide column filterColumn">
     <div class="row one column filterBlock">
       <!-- Page: ~/Views/Shared/Common/_FilterMenu.cshtml -->
       @if (LojaCorp.Control.Company._Company.ViewProductFiltersUrl)
@@ -56,7 +56,7 @@
     </div>
   </div>
 }
-<div class="twelve wide column">
+<div class="sixteen wide column">
   <div class="ui grid">
     <div class="row one column">
       <div class="column right aligned right floated">
@@ -64,7 +64,7 @@
           <i class="filter icon"></i>
           Filtros
         </button>
-        <div class="ui dropdown button basic dropdownitens small">
+        <!--<div class="ui dropdown button basic dropdownitens small">
           <span class="text">@(Request.QueryString["pageSize"] != null ? Request.QueryString["pageSize"] : "Itens")</span>
           <i class="dropdown icon"></i>
           <div class="menu">
@@ -81,7 +81,7 @@
               30
             </div>
           </div>
-        </div>
+        </div>-->
         <div class="ui dropdown button basic dropdownorder small">
           <span class="text">Ordenar por</span>
           <i class="dropdown icon"></i>
@@ -133,7 +133,7 @@
             category = Model.IdCategory,
             viewList = Request.QueryString["viewList"] ?? "",
             pageNumber = Request.QueryString["pageNumber"] ?? "",
-            pageSize = 12,
+            pageSize = 15,
             order = Request.QueryString["order"] ?? "",
             brand = Request.QueryString["brand"] ?? "",
             group = Request.QueryString["group"] ?? "",

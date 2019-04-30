@@ -2,7 +2,7 @@
 
 <script>
     jQuery(document).ready(function ($) {
-        slickGallery();
+        //slickGallery();
     });
     function checkImagesSize(imageQuantity) {
         var images = $(".car-gallery .ui.image").length;
@@ -26,7 +26,8 @@
             slidesToShow: 3,
             mobileFirst:true,
             useTransform:false,
-            infinite:false
+            infinite:false,
+            vertical: true
         });
     }
 </script>

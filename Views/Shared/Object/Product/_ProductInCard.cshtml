@@ -8,7 +8,7 @@
 <div id="Product_@Model.IdProduct" data-id="Product_@Model.IdProduct" class="ui card produto product-in-card" data-exhausted="@Model.FlagExhausted" itemscope itemtype="http://schema.org/Product">
     <input type="hidden" id="selected-references_@Model.IdProduct" />
     <meta itemprop="productID" content="@Model.IdProduct">
-    <div class="content">
+    <div class="content crpMango">
         @{
             List<DomainCustomer.Entities.Wishlist.WishlistItem> wishList = null;
             bool inlist = false;
@@ -46,14 +46,7 @@
             bool isAssistedSale = _assistedSale != null ? true : false;
 
 
-            if (!Model.HasConjunct && !isb2b && !isAssistedSale)
-            {
-                <div class="ui top right attached label massive wishlist">
-                    <div class="bcg-heart wishlist-btn" data-wishlist-local="card" data-tooltip="@textListaDesejo" data-position="top right">
-                        <i class="wishlist-item icon heart @color" data-in-list="@inlist" data-have-sku="@(Model.AvailableReferences != null && Model.AvailableReferences.Count() > 0 ? "true" : "false")" data-product-id="@Model.IdProduct"></i>
-                    </div>
-                </div>
-            }
+            
         }
         @if (Model.AlternativeImage != null)
         {
@@ -96,7 +89,7 @@
                     <input type="hidden" name="produto-sku" id="produto-sku" value="" />
                     foreach (var reference in Model.AvailableReferences)
                     {
-                        <div id="referencefromproduct_@Model.IdProduct" class="ui fluid selection dropdown dropdownreference" data-total-referencia="@(Model.AvailableReferences != null ? Model.AvailableReferences.Count() : 0)" data-idproduct="@Model.IdProduct">
+                        <!--<div id="referencefromproduct_@Model.IdProduct" class="ui fluid selection dropdown dropdownreference" data-total-referencia="@(Model.AvailableReferences != null ? Model.AvailableReferences.Count() : 0)" data-idproduct="@Model.IdProduct">
                             <input type="hidden" name="reference_@Model.IdProduct" data-id-reference="@reference.IdReference" id="@reference.Name">
                             <i class="dropdown icon"></i>
                             <span class="text">@reference.Name</span>
@@ -137,7 +130,7 @@
                                     }
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="ui small divider hidden"></div>
                     }
                 }
@@ -165,10 +158,20 @@
                 }
                 else
                 {
-                    <a id="btn-comprar-card-@Model.IdProduct" title="Comprar" class="ui labeled icon button action fluid btn-comprar-card text uppercase" data-idproduct="@Model.IdProduct" data-name="@Model.Name">
-                        <i id="btn-icon-card-@Model.IdProduct" class="icon add to cart"></i>
-                        Comprar
+                    <a id="btn-comprar-card-@Model.IdProduct" title="Comprar" class="ui icon button compra" data-idproduct="@Model.IdProduct" data-name="@Model.Name">
+                        <i class="shopping bag icon"></i>
                     </a>
+
+                    if (!Model.HasConjunct && !isb2b && !isAssistedSale)
+                    {
+                        <div class="ui top right attached label massive wishlist">
+                            <div class="crp-heart" data-wishlist-local="card" data-tooltip="@textListaDesejo" data-position="top right">
+                                <i class="wishlist-item icon heart @color" data-in-list="@inlist" data-have-sku="@(Model.AvailableReferences != null && Model.AvailableReferences.Count() > 0 ? "true" : "false")" data-product-id="@Model.IdProduct"></i>
+                            </div>
+                        </div>
+                    }
+
+
                 }
             </div>
             <div class="dados">
@@ -184,7 +187,7 @@
                     <meta itemprop="priceCurrency" content="BRL" />
                     @if (Model.PricePromotion != null && Model.PricePromotion > 0)
                     {
-                        <span id="basePrice_@Model.IdProduct" class="precoBase">de <i>@string.Format("{0:c}", Model.Price)</i> por @(Session["segment"] != null && Session["segment"].ToString() == "b2b" && Model.AvailableReferences != null ? "a partir de" : string.Empty)</span>
+                        <span id="basePrice_@Model.IdProduct" class="precoBase"><i>@string.Format("{0:c}", Model.Price)</i>   @(Session["segment"] != null && Session["segment"].ToString() == "b2b" && Model.AvailableReferences != null ? "a partir de" : string.Empty)</span>
                         <span class="preco">R$ <span itemprop="price">@string.Format("{0:n2}", Model.PricePromotion)</span></span>
 
                     }
@@ -199,10 +202,12 @@
                     }
                     @if (Model.InstallmentMax != null)
                     {
+                        /*
                         <span class="parcelamento">
                             ou em <span class="installmentMaxNumber">@Model.InstallmentMax.MaxNumber</span>
                             x de <span class="installmentMaxValue">@string.Format("{0:c}", Model.InstallmentMax.Value)</span>
                         </span>
+                        */
                     }
 
                     @if (Model.Stock >= 0 && !Model.FlagExhausted)
